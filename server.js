@@ -14,6 +14,7 @@ const colors = require("colors");
 colors.enable();
 
 const fileupload = require("express-fileupload");
+const cookieParser = require("cookie-parser");
 
 // Route files
 const bootcamps = require("./routes/bootcamps");
@@ -27,6 +28,9 @@ const app = express();
 
 // Body Parser
 app.use(express.json());
+
+// Cookie Parser
+app.use(cookieParser());
 
 // Dev Logger Middleware
 if (process.env.NODE_ENV === "development") {
