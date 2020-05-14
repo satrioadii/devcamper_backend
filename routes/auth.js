@@ -1,5 +1,11 @@
 const express = require("express");
-const { register, login, getMe } = require("../controllers/auth");
+const {
+	register,
+	login,
+	getMe,
+	forgotPassword,
+	resetPassword,
+} = require("../controllers/auth");
 
 const { protect } = require("../middleware/auth");
 
@@ -11,5 +17,8 @@ router.post("/register", register);
 router.post("/login", login);
 // @rooute  GET /api/v1/auth/me
 router.get("/me", protect, getMe);
-
+// @rooute  POST /api/v1/auth/forgotpassword
+router.post("/forgotpassword", forgotPassword);
+// @rooute  PUT /api/v1/auth/resetpassword/:resettoken
+router.put("/resetpassword/:resettoken", resetPassword);
 module.exports = router;
