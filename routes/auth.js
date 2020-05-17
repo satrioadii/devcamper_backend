@@ -7,6 +7,7 @@ const {
 	resetPassword,
 	updateDetails,
 	updatePassword,
+	logout,
 } = require("../controllers/auth");
 
 const { protect } = require("../middleware/auth");
@@ -17,6 +18,8 @@ const router = express.Router();
 router.post("/register", register);
 // @rooute  POST /api/v1/auth/login
 router.post("/login", login);
+// @rooute  GET /api/v1/auth/logout
+router.get("/logout", logout);
 // @rooute  GET /api/v1/auth/me
 router.get("/me", protect, getMe);
 // @rooute  PUT /api/v1/auth/updatedetails
